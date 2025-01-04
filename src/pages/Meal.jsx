@@ -1,9 +1,11 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
-
-export default function Meal({id}) {
+export default function Meal() {
     const [meal, setMeal] = useState({})
+    const { id } = useParams()
     console.log(id);
     
 
@@ -18,6 +20,7 @@ export default function Meal({id}) {
 
     return (
         <div>
+            <Navbar/>
             <h1>meal</h1>
             <div>
                 <h1>{meal.strMeal}</h1>

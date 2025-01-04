@@ -1,3 +1,5 @@
+import logo from "../assets/logo.png"
+
 export default function ({setURL}) {
     const handleCategory = (e) => {
         setURL(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${e.target.innerText}`)
@@ -13,12 +15,12 @@ export default function ({setURL}) {
 
     return (
         <nav>
-            <div>
+            <div className="flex justify-between items-center bg-green-300 h-20 w-screen">
                 <div>
-                    <img src="" className=""/>
+                    <img src={logo} className="w-10 h-10"/>
                 </div>
-                <div>
-                    <span className="dropdown">
+                <div className="flex">
+                    <span className="dropdown mr-3">
                         <a className="btn  dropdown-toggle bg-blue-300" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                             Categories
                         </a>
@@ -29,7 +31,7 @@ export default function ({setURL}) {
                             <li><a className="dropdown-item" href="#" onClick={handleCategory}>Chicken</a></li>
                         </ul>
                     </span>
-                    <span className="dropdown">
+                    <span className="dropdown mr-3">
                         <a className="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                             Area
                         </a>
@@ -40,7 +42,9 @@ export default function ({setURL}) {
                             <li><a className="dropdown-item" href="#" onClick={handleArea}>Canadian</a></li>
                         </ul>
                     </span>
-                    <button name="feeling lucky">random</button>
+                    <div className="w-20 h-9 mr-5 bg-slate-600 flex justify-center items-center rounded-md">
+                    <span name="feeling lucky" className="bg-blue-300 rou">Random</span>
+                    </div>
                 </div>
             </div>
         </nav>
