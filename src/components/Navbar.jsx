@@ -1,3 +1,4 @@
+import axios from "axios"
 import logo from "../assets/logo.png"
 import { useNavigate } from "react-router-dom"
 
@@ -7,15 +8,19 @@ export default function ({setURL}) {
     const handleCategory = (e) => {
         navigate("/")
         setURL(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${e.target.innerText}`)
-        // setCategory(e.target.innerText)
-        // console.log(e.target.innerText);
     }
     
     const handleArea = (e) => {
         navigate("/")
         setURL(`https://www.themealdb.com/api/json/v1/1/filter.php?a=${e.target.innerText}`)
-        // setArea(e.target.innerText)
-        // console.log(e.target.innerText);
+    }
+
+    const handleRandom = () => {
+        axios.get("https://www.themealdb.com/api/json/v1/1/random.php")
+        .then((res) => {
+            navigate(`/recipe/${res.data.meals[0].idMeal}`)  
+        })
+        
     }
 
     return (
@@ -57,9 +62,7 @@ export default function ({setURL}) {
                             <li><a className="dropdown-item text-white" href="#" onClick={handleArea}>Mexican</a></li>
                         </ul>
                     </span>
-                    {/* <div className="w-20 h-9 mr-5 bg-gray-700 flex justify-center items-center rounded-md">
-                    </div> */}
-                    <button name="feeling lucky" className="text-white bg-gray-700 [@media(max-width:580px)]:text-xs mr-5 rounded-md p-2">Random</button>
+                    <button name="feeling lucky" className="text-white bg-gray-700 [@media(max-width:580px)]:text-xs mr-5 rounded-md p-2" onClick={handleRandom}>Random</button>
                 </div>
             </div>
         </nav>

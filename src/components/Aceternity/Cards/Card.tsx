@@ -4,10 +4,10 @@ import { cn } from "../../../lib/utils.ts";
 
 export function Card({ name, img }: { name: string; img: string }) {
     return (
-        <div className="max-w-xs w-full group/card ">
+        <div className="max-w-xs min-w-lg w-full group/card ">
             <div
                 className={cn(
-                    "cursor-pointer overflow-hidden relative card h-64 rounded-md shadow-xl max-w-sm mx-auto flex flex-col justify-between p-4 bg-cover"
+                    "cursor-pointer overflow-hidden relative card h-64 rounded-md shadow-xl max-w-lg min-w-lg mx-auto flex flex-col justify-between p-4 bg-cover"
                 )}
                 style={{ backgroundImage: `url(${img})` }} // Inline style for dynamic background
             >
