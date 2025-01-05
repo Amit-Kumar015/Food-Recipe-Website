@@ -15,10 +15,10 @@ export default function Meal() {
     }, [id])
 
     return (
-        <div className="bg-stone-900 h-screen">
+        <div className="bg-neutral-950 h-screen">
             <Navbar />
 
-            <div className="w-screen flex justify-center bg-stone-900 overflow-y-scroll mt-10">
+            <div className="w-screen flex justify-center bg-neutral-950 overflow-y-scroll mt-10">
                 <div className="w-11/12 flex flex-col justify-center mt-3 md:flex-row" >
                     <div className="w-full md:w-6/12 max-w-80 min-w-44 md:mr-5 mb-4 md:mb-0">
                         <img className="rounded-lg" src={meal.strMealThumb} alt="Meal Thumbnail" />

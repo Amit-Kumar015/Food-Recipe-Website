@@ -14,7 +14,7 @@ export function Card({ name, img }: { name: string; img: string }) {
                 <div className="absolute w-full h-full top-0 left-0 transition duration-300 group-hover/card:bg-black opacity-60"></div>
 
                 <div className="text-content">
-                    <h1 className="font-bold text-xl md:text-2xl text-gray-50 ">
+                    <h1 className="font-bold text-xl md:text-2xl text-gray-50 relative z-10">
                         {name}
                     </h1>
                 </div>
