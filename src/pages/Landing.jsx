@@ -46,36 +46,38 @@ export default function Landing() {
 
 
     return (
-        <div className="w-screen h-screen bg-orange-300 overflow-y-scroll">
+        <div className="w-screen bg-slate-950 overflow-y-scroll">
             <Navbar setURL={setURL} />
-            <div className='bg-pink-300 w-screen h-2/5 flex justify-center items-center'>
+            <div className='bg-slate-950 w-screen h-52 mb-4 flex justify-center items-center'>
                 <div className='flex'>
                     <div className=''>
 
                         <input
                             type='text'
-                            placeholder='search...'
-                            className='pl-1 h-7'
+                            placeholder='Search Recipe...'
+                            className='pl-2 h-7 rounded-tl-md rounded-bl-md'
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
                         />
                     </div>
-                    <div className='bg-slate-400 w-17 pr-3 pl-3'>
-                        <button onClick={handleSearch}>Search</button>
+                    <div className='bg-slate-700 w-17 pr-3 pl-3 rounded-tr-md rounded-br-md cursor-pointer'>
+                        <button onClick={handleSearch} className='text-white'>Search</button>
                     </div>
                 </div>
             </div>
-            <div>
-                {
-                    meals.map((meal) => (
+            <div className='w-screen flex justify-center border-t border-white'>
+                <div className='w-11/12 row justify-content-between mt-4'>
+                    {
+                        meals.map((meal) => (
 
-                        <div key={meal.idMeal} id={meal.idMeal} onClick={handleMeal}>
-                            {/* <span>{meal.strMeal}</span> */}
-                            <Card name={meal.strMeal} img={meal.strMealThumb}/>
-                        </div>
-                    ))
+                            <div key={meal.idMeal} id={meal.idMeal} className='col-md-3 m-3' onClick={handleMeal}>
+                                {/* <span>{meal.strMeal}</span> */}
+                                <Card name={meal.strMeal} img={meal.strMealThumb} />
+                            </div>
+                        ))
 
-                }
+                    }
+                </div>
             </div>
         </div>
     )
