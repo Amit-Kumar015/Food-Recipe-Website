@@ -19,7 +19,7 @@ export default function Landing() {
                 setMeals(res.data.meals)
             })
             .catch((err) => {
-                console.error("error while fetching meals data: ", err);
+                console.error("Error while fetching all meals data: ", err);
             })
     }, [url])
 

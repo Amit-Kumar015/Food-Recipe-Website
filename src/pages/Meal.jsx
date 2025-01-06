@@ -12,6 +12,9 @@ export default function Meal() {
             .then((res) => {
                 setMeal(res.data.meals[0])
             })
+            .catch(() => {
+                console.error("Error while fetching meal data ", err);
+            })
     }, [id])
 
     return (

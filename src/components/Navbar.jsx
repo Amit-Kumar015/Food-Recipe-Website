@@ -2,15 +2,17 @@ import axios from "axios"
 import logo from "../assets/logo.png"
 import { useNavigate } from "react-router-dom"
 
-export default function ({setURL}) {
-    const navigate = useNavigate()
+export default function ({ setURL }) {
+    const navigate = useNavigate()    
 
     const handleCategory = (e) => {
+        e.preventDefault()
         navigate("/")
         setURL(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${e.target.innerText}`)
     }
     
     const handleArea = (e) => {
+        e.preventDefault()
         navigate("/")
         setURL(`https://www.themealdb.com/api/json/v1/1/filter.php?a=${e.target.innerText}`)
     }
@@ -19,6 +21,9 @@ export default function ({setURL}) {
         axios.get("https://www.themealdb.com/api/json/v1/1/random.php")
         .then((res) => {
             navigate(`/recipe/${res.data.meals[0].idMeal}`)  
+        })
+        .catch((err) => {
+            console.error("Error while fetching random meal ", err);
         })
         
     }
