@@ -9,14 +9,17 @@ import { BackgroundBeamsDemo } from '../components/Aceternity/BackgroundBeam/Bac
 export default function Landing() {
     const [meals, setMeals] = useState([])
     const [searchTerm, setSearchTerm] = useState("")
+    const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
     const [url, setURL] = useState("https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood")
 
 
     useEffect(() => {
+        setLoading(true)
         axios.get(url)
             .then((res) => {
                 setMeals(res.data.meals)
+                setLoading(false)
             })
             .catch((err) => {
                 console.error("Error while fetching all meals data: ", err);
@@ -37,7 +40,7 @@ export default function Landing() {
             <Navbar setURL={setURL} />
             <BackgroundBeamsDemo searchTerm={searchTerm} setSearchTerm={setSearchTerm} handleSearch={handleSearch}/>
             <div className='w-screen h-full flex justify-center border-t border-white bg-neutral-950'>
-                <div className='w-11/12 h-full flex flex-wrap justify-evenly gap-5 mt-10 '>
+                {loading ? (<span className="text-white text-center text-2xl mt-10">Loading...</span>) : <div className='w-11/12 h-full flex flex-wrap justify-evenly gap-5 mt-10 '>
                     {
                         meals.map((meal) => (
 
@@ -52,7 +55,7 @@ export default function Landing() {
                         ))
 
                     }
-                </div>
+                </div>}
             </div> 
         </div>
     )
